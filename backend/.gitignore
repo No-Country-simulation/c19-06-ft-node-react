@@ -1,2 +1,5 @@
-node_modules
+# NODE MODULES
+.vscode
+/node_modules
+
 .env
