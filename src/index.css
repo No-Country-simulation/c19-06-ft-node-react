@@ -1,0 +1,19 @@
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', "Helvetica Neue", "Arial", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+.color1 { #347d28 }; shadow
+.color2 { #27661e }; botones 
+.color3 { #1a4f14 };
+.color4 { #0d390a };
+.color5 { #002200 };*/
