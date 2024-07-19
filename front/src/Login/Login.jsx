@@ -1,5 +1,7 @@
+//HOOKS
 import React from "react";
 import { Link } from "react-router-dom";
+//STYLE
 import style from "./Login.module.css";
 
 const Login = ({ closeModal }) => {

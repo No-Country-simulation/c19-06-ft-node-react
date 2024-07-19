@@ -1,8 +1,10 @@
-import style from "./Footer.module.css";
+//IMAGE
 import instagram from "../../public/icons/instagram.png";
 import facebook from "../../public/icons/facebook.png";
-import twitter from "../../public/icons/twitter.png";
 import whatsapp from "../../public/icons/whatsapp.png";
+import twitter from "../../public/icons/twitter.png";
+//STYLE
+import style from "./Footer.module.css";
 
 const Footer = () => {
   return (
