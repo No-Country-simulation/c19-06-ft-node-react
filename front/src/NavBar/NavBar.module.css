@@ -4,49 +4,73 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: rgb(0, 0, 0);
+  background-color: #05050591;
   justify-content: space-between;
-  padding: 20px 60px 10px;
-  z-index: 3;
+  padding: 15px 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
 }
 
+
 .title {
-  font-size: 35px;
-  font-weight: 600;
-  display: block;
-  color: white;
-  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+  color:  #fff;
   text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: color  0.3s;
+}
+
+.title:hover {
+  color: #59c535;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .items {
   display: flex;
   align-items: center;
-  margin: 0;
-  padding: 0;
   list-style: none;
-  color: white;
 }
 
 .item {
-  font-size: 15px;
-  font-weight: bold;
-  padding: 8px 16px;
-  text-transform: uppercase;
-  cursor: pointer;
+  margin: 0 10px;
   position: relative;
+  transition: transform  0.3s, color  0.3s;
+}
+
+.item a {
+  color:  #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.item:hover a,
+.item.active a {
+  color: #59c535;
 }
 
 .item::after {
   content: '';
   display: block;
   width: 0;
-  height: 2px;
-  background-color: #27661e; 
+  height: 3px;
+  background-color: #59c535;
   position: absolute;
-  bottom: -2px;
-  left: 0;
-  transition: width 0.3s ease;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+
+.item.active::after,
+.item:hover::after {
+  width: 100%;
 }
 
 .login {
@@ -55,30 +79,23 @@
   color: #59c535;
   font-weight: bold;
   text-transform: uppercase;
-  text-decoration: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .login:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  color: #4a9e2b;
 }
 
 .user {
   width: 24px;
   height: 24px;
-  margin-right: 5px;
+  margin-right: 8px;
+  transition: transform 0.3s;
 }
 
-.items a{
-  color:white
+.user:hover {
+  transform: scale(1.1);
 }
-
-.item:hover::after {
-  width: 100%;
-}
-
-
-
-
 

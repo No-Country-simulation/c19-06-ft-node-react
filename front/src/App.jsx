@@ -1,18 +1,20 @@
-import ContactUs from "./ContactUs/ContactUs";
-import Membresia from "./Membresias/Membresia";
+//HOOKS
+import { Routes, Route, useLocation  } from "react-router-dom";
+import { useState } from 'react';
+//COMPONENTS
+import DashboardClient from "./DashboardClient/DashboardClient";
 import Activities from "./Activities/Activities";
-import Users from "./Users/Users ";
+import Membresia from "./Membresias/Membresia";
+import FormLogin from "./FormLogin/FormLogin";
+import ContactUs from "./ContactUs/ContactUs";
 import NavBar from "./NavBar/NavBar";
 import Footer from "./Footer/Footer";
-import FormLogin from "./FormLogin/FormLogin";
-import Home from "./Home/Home";
+import Users from "./Users/Users ";
 import Login from "./Login/Login";
 import Modal from "./Modal/Modal";
-
-import { useState } from 'react';
-
+import Home from "./Home/Home";
+//STYLE
 import style from "./App.module.css";
-import { Routes, Route } from "react-router-dom";
 
 function App() {
 
@@ -26,9 +28,11 @@ function App() {
     setShowModal(false);
   };
 
+  const location = useLocation();
+
   return (
     <div className={style.App}>
-      <NavBar openModal={openModal} />
+      {location.pathname !== '/dashboardclient' && <NavBar openModal={openModal} />}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/membresia" element={<Membresia />} />
@@ -36,11 +40,12 @@ function App() {
         <Route path="/actividades" element={<Activities />} />
         <Route path="/usuario" element={<Users />} />
         <Route path="/formulario" element={<FormLogin />} />
+        <Route path="/dashboardclient" element={<DashboardClient/>}/>
       </Routes>
       <Modal show={showModal} onClose={closeModal}>
         <Login onClick={closeModal}/>
       </Modal>
-      <Footer />
+      {location.pathname !== '/dashboardclient' && <Footer />}
     </div>
   );
 }

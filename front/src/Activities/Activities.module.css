@@ -1,36 +1,89 @@
 .container {
-  margin-top: 83px;
-  padding: 20px 60px 10px;
-  background-color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
+  padding: 0 20px;
 }
 
-.swiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: #cf0e0e;
+.title h1{
+  font-size: 35px;
+  font-weight: 600;
+  margin-top: 90px;
+  margin-bottom: 20px;
+  margin-left: 50px;
+  color: white;
+}
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .swiper-slide img {
-    display: block;
-    width: 10%;
-    height: 10%;
-    object-fit: cover;
-  }
-  
-  .swiper {
-    width: 10%;
-    height: 300px;
-    margin: 20px auto;
-  }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  width: 100%;
+}
+
+.card {
+  background-color: #242424; 
+  border-radius: 18px;
+  width: 100%;
+  overflow: hidden;
+  max-width: 300px;
+  margin: 0px auto;
+  margin-bottom: 20px; 
+  box-shadow: 0 4px 8px rgba(7, 7, 7, 0.981) inset;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #27661e;
+}
+
+.imageText {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5); 
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 20px;
+}
+
+.info {
+  padding: 16px;
+  color: white;
+}
+
+.info p {
+  margin: 5px 0;
+}
+
+.buy {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  z-index: 2;
+}
+
+.button {
+  font-size: 15px;
+  font-weight: 800;
+  color: black;
+  border: none;
+  cursor: pointer;
+  background-color: #3ba22e;
+  border-radius: 100px;
+  padding: 8px 32px;
+}

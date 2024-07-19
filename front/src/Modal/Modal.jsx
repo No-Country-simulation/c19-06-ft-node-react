@@ -1,6 +1,9 @@
+//HOOKS
 import React from "react";
-import style from "./Modal.module.css";
+//COMPONENTS
 import x from "../../public/icons/x.png";
+//STYLE
+import style from "./Modal.module.css";
 
 const Modal = ({ show, onClose, children }) => {
   if (!show) return null;

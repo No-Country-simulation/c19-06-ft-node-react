@@ -1,5 +1,7 @@
+//HOOKS
 import React from "react";
 import { Link } from "react-router-dom";
+//STYLE
 import style from "./Login.module.css";
 
 const Login = ({ closeModal }) => {
@@ -39,7 +41,7 @@ const Login = ({ closeModal }) => {
           <input type="submit" value="Ingresar" className={style.button} />
         </div>
       </form>
-      <Link to="/registrar" className={style.link} onClick={handleRegisterClick}>
+      <Link to="/formulario" className={style.link} onClick={handleRegisterClick}>
         <p className={style.registrate} >¿No tienes cuenta? Registrate aca</p>
       </Link>
     </div>
