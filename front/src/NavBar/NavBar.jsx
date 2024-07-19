@@ -1,31 +1,39 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import login from "../../public/Nav/usuario.png";
 import style from "./NavBar.module.css";
 
 const NavBar = ({ openModal }) => {
+  const location = useLocation(); // para saber la ruta y aplicar el estilo correspondiente
+
   return (
-    <div className={style.navbar}>
-      <Link to="/" className={style.title}>
-        GIMNASIO
-      </Link>
+    <header className={style.navbar}>
+        <Link to="/" className={style.title}>
+          GIMNASIO
+        </Link>
       <nav className={style.container}>
         <ul className={style.items}>
-          <a href="/membresia">
-            <li className={style.item}>MEMBRESIAS</li>
-          </a>
-          <a href="/actividades">
-            <li className={style.item}>ACTVIDADES</li>
-          </a>
-          <a href="">
-            <li className={style.item}>CONTACTANOS</li>
-          </a>
-          <li className={style.login} onClick={openModal}>
-            <img src={login} alt="usuario" className={style.user} />
+          <li className={location.pathname === '/membresia' ? `${style.item} ${style.active}` : style.item}>
+            <Link to="/membresia" aria-current={location.pathname === '/membresia' ? 'page' : undefined}>
+              Membresías
+            </Link>
+          </li>
+          <li className={location.pathname === '/actividades' ? `${style.item} ${style.active}` : style.item}>
+            <Link to="/actividades" aria-current={location.pathname === '/actividades' ? 'page' : undefined}>
+              Actividades
+            </Link>
+          </li>
+          <li className={location.pathname === '/contactanos' ? `${style.item} ${style.active}` : style.item}>
+            <Link to="/contactanos" aria-current={location.pathname === '/contactanos' ? 'page' : undefined}>
+              Contáctanos
+            </Link>
+          </li>
+          <li className={style.login} onClick={openModal} role="button" aria-label="Login / Registrate">
+            <img src={login} alt="Icono de usuario" className={style.user} />
             Login / Registrate
           </li>
         </ul>
       </nav>
-    </div>
+    </header>
   );
 };
 
