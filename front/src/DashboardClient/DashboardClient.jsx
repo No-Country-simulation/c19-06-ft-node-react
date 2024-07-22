@@ -23,7 +23,7 @@ const DashboardClient = () => {
                         Entrenadores
                     </li>
                     <li>
-                        Reserva de clases
+                        Reserva de clase
                     </li>
                 </ul>
                 </nav>
