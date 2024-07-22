@@ -1,5 +1,8 @@
+//HOOKS
 import { Link, useLocation } from "react-router-dom";
+//COMPONENTS
 import login from "../../public/Nav/usuario.png";
+//STYLE
 import style from "./NavBar.module.css";
 
 const NavBar = ({ openModal }) => {
