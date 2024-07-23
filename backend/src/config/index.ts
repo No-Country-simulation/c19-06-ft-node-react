@@ -8,7 +8,7 @@ export const config = {
     port: process.env.PORT ?? 3100
   },
   database: {
-    url: process.env.DATABASE_URL ?? "postgres://localhost:5432",
+    url: process.env.DATABASE_URL ?? "postgres://localhost:5432/gym",
     name: process.env.DATABASE_NAME ?? "gym",
     user: process.env.DATABASE_USER ?? "postgres",
     password: process.env.DATABASE_PASSWORD ?? "password",
