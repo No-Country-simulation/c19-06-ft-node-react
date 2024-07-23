@@ -1,51 +1,83 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../database";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '../database';
 
-// Has id, name, last_name, email, password, phone_number, address, birth_date, and role???
-export const User = sequelize.define(
-  "User",
+interface UserAttributes {
+  id: string;
+  email: string;
+  password: string;
+  name: string;
+  last_name: string;
+  phone_number: string;
+  address: string;
+  birth_date: Date;
+  role: string;
+  refreshToken?: string;
+}
+
+interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
+
+export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
+  public id!: string;
+  public email!: string;
+  public password!: string;
+  public name!: string;
+  public last_name!: string;
+  public phone_number!: string;
+  public address!: string;
+  public birth_date!: Date;
+  public role!: string;
+  public refreshToken?: string;
+}
+
+User.init(
   {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      defaultValue: DataTypes.UUIDV4
-    },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-    last_name: {
-      type: DataTypes.STRING,
-      allowNull: false
+      defaultValue: DataTypes.UUIDV4,
     },
     email: {
       type: DataTypes.STRING,
       unique: true,
-      allowNull: false
+      allowNull: false,
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    last_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     phone_number: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     address: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
     birth_date: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: false,
     },
     role: {
       type: DataTypes.STRING,
-      allowNull: false
-    }
+      allowNull: false,
+    },
+    refreshToken: { 
+      type: DataTypes.STRING,
+      allowNull: true, 
+    },
   },
   {
+    sequelize,
     paranoid: true,
-    deletedAt: "deleted_at"
+    deletedAt: 'deleted_at',
+    tableName: 'users',
   }
 );

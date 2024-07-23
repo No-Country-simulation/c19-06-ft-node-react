@@ -3,19 +3,22 @@ import { config } from "./config";
 import { swaggerDocs as V1SwaggerDocs } from "./services/swagger/swagger";
 import { sequelize } from "./database/database";
 import v1 from "./web/v1/router";
+import cookieParser from "cookie-parser";
 
 const app = express();
 const port = config.api.port;
 
 app.use(express.json()); // middleware for parsing application/json
+app.use(cookieParser());
 
 app.use("/v1", v1);
 
 const Server = async () => {
   console.log("Starting server...");
   try {
-    await sequelize.authenticate({ logging: false });
+    await sequelize.authenticate({ logging: true });
     console.log("Database connection has been established successfully.");
+    await sequelize.sync({ alter: true });
     app.listen(port, () => {
       V1SwaggerDocs(app, port);
     });
