@@ -1,9 +1,29 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../database";
+import { DataTypes, Model, Optional } from 'sequelize';
+import { sequelize } from '../database';
 
-// Has id, name, description, start_time, end_time, day, teacher_id??, and price
-export const Class = sequelize.define(
-  "Class",
+interface ClassAttributes {
+  id: string;
+  name: string;
+  description: string;
+  start_time: string;
+  end_time: string;
+  day: string;
+  capacity?: number;
+}
+
+interface ClassCreationAttributes extends Optional<ClassAttributes, 'id'> {}
+
+class Class extends Model<ClassAttributes, ClassCreationAttributes> implements ClassAttributes {
+  public id!: string;
+  public name!: string;
+  public description!: string;
+  public start_time!: string;
+  public end_time!: string;
+  public day!: string;
+  public capacity?: number;
+}
+
+Class.init(
   {
     id: {
       type: DataTypes.UUID,
@@ -30,15 +50,16 @@ export const Class = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false
     },
-    price: {
-      type: DataTypes.DECIMAL,
-      allowNull: false
+    capacity: {
+      type: DataTypes.INTEGER,
+      allowNull: true,
     }
   },
   {
+    sequelize,
     paranoid: true,
     deletedAt: "deleted_at"
   }
 );
 
-// RELATIONS
+export { Class };
