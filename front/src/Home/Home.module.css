@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
-
 .container {
   margin: 0;
   padding: 0;
@@ -10,36 +8,58 @@
 
 .heroSection {
   position: relative;
-  text-align: left; /* Cambiado a izquierda */
+  text-align: center;
+  /* Centrar el contenido en dispositivos móviles */
   color: white;
 }
 
 .image {
   width: 100%;
-  height: 100%; /* Ajusta la altura según sea necesario */
-  filter: brightness(50%); /* Oscurecer imagen */
+  height: auto;
+  /* Ajustar la imagen proporcionalmente */
+  filter: brightness(50%);
 }
 
 .title {
   position: absolute;
-  bottom: 20px; /* Posiciona en la parte inferior */
-  left: 30px; /* Posiciona a la izquierda */
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Centrar el título horizontalmente */
+  text-align: center;
+  /* Alinear texto al centro */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 .title h1 {
   font-family: "Poppins", sans-serif;
-  font-size: 48px;
+  font-size: 36px;
+  /* Reducir el tamaño del título para dispositivos móviles */
   font-weight: 700;
   color: #ffff;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
+  /* Reducir el espaciado entre letras */
   margin: 0;
 }
 
 .title p {
   color: #ffff;
-  font-size: 24px;
+  font-size: 18px;
+  /* Reducir el tamaño del texto para dispositivos móviles */
   margin-bottom: 5px;
   text-transform: uppercase;
 }
 
+@media (min-width: 768px) {
+  .title h1 {
+    font-size: 48px;
+    /* Restaurar tamaño del título para pantallas más grandes */
+    letter-spacing: 5px;
+    /* Restaurar espaciado entre letras */
+  }
+
+  .title p {
+    font-size: 24px;
+    /* Restaurar tamaño del texto para pantallas más grandes */
+  }
+}

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ejercicio from "../../public/Home/gim3.jpg";
 //STLYE
 import style from "./Home.module.css";
+import ejercicio from "../../public/Home/gim3.jpg";
 
 const Home = () => {
   return (

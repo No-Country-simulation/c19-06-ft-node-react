@@ -1,3 +1,4 @@
+/* Estilos generales (Computadora) */
 .navbar {
   position: fixed;
   top: 0;
@@ -11,14 +12,13 @@
   z-index: 1000;
 }
 
-
 .title {
   font-size: 2rem;
   font-weight: 700;
-  color:  #fff;
+  color: #fff;
   text-decoration: none;
   letter-spacing: 0.5px;
-  transition: color  0.3s;
+  transition: color 0.3s;
 }
 
 .title:hover {
@@ -39,11 +39,11 @@
 .item {
   margin: 0 10px;
   position: relative;
-  transition: transform  0.3s, color  0.3s;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .item a {
-  color:  #fff;
+  color: #fff;
   text-decoration: none;
   padding: 10px 20px;
   display: block;
@@ -99,3 +99,45 @@
   transform: scale(1.1);
 }
 
+/* Media Query para iPhone 14 Pro Max */
+@media (max-width: 430px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .items {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    padding: 0;
+  }
+
+  .item {
+    margin: 5px 0;
+  }
+
+  .item a {
+    padding: 10px 15px;
+  }
+
+  .login {
+    margin-top: 10px;
+  }
+
+  .user {
+    width: 20px;
+    height: 20px;
+  }
+}
