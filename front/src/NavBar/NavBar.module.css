@@ -4,30 +4,29 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #05050591;
+  background-color: var(--background-color-black-transl);
   justify-content: space-between;
   padding: 15px 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--background-color-shadow);
   z-index: 1000;
 }
-
 
 .title {
   font-size: 2rem;
   font-weight: 700;
-  color:  #fff;
+  color: var(--color-text-green);
   text-decoration: none;
   letter-spacing: 0.5px;
-  transition: color  0.3s;
+  transition: color 0.3s;
 }
 
 .title:hover {
-  color: #59c535;
+  color: var(--button-color-hover-green);
 }
 
 .container {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 .items {
@@ -39,11 +38,11 @@
 .item {
   margin: 0 10px;
   position: relative;
-  transition: transform  0.3s, color  0.3s;
+  transition: transform 0.3s, color 0.3s;
 }
 
 .item a {
-  color:  #fff;
+  color: var(--color-text-light);
   text-decoration: none;
   padding: 10px 20px;
   display: block;
@@ -52,15 +51,15 @@
 
 .item:hover a,
 .item.active a {
-  color: #59c535;
+  color: var(--color-text-green);
 }
 
 .item::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 3px;
-  background-color: #59c535;
+  background-color: var(--button-color-green);
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -76,7 +75,7 @@
 .login {
   display: flex;
   align-items: center;
-  color: #59c535;
+  color: var(--color-text-green);
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -85,7 +84,7 @@
 
 .login:hover {
   transform: scale(1.05);
-  color: #4a9e2b;
+  color: var(--color-text-hover-green);
 }
 
 .user {
@@ -99,3 +98,75 @@
   transform: scale(1.1);
 }
 
+/* Estilos para pantallas de 768px o menos */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 10px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .container {
+    width: 100%;
+    display: none;
+  }
+
+  .items {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .item {
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  .item a {
+    padding: 10px;
+    display: block;
+    text-align: center;
+  }
+
+  .login {
+    margin-top: 10px;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .login img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Estilos para el botón de menú en pantallas pequeñas */
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--color-text-green);
+  cursor: pointer;
+}
+
+/* Mostrar el botón de menú en pantallas pequeñas */
+@media (max-width: 768px) {
+  .menuButton {
+    display: block;
+  }
+
+  .container {
+    display: none;
+  }
+
+  .menuOpen {
+    display: block;
+  }
+}
