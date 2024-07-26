@@ -4,6 +4,7 @@ import { swaggerDocs as V1SwaggerDocs } from "./services/swagger/swagger";
 import { sequelize } from "./database/database";
 import v1 from "./web/v1/router";
 import cookieParser from "cookie-parser";
+import './database/models/associations'
 
 const app = express();
 const port = config.api.port;
