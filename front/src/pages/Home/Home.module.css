@@ -1,0 +1,255 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap");
+
+.container {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color-black);
+  color: var(--color-text-light);
+  font-family: "Arial", sans-serif;
+}
+
+.heroSection {
+  position: relative;
+  text-align: left;
+  color: var(--color-text-light);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  filter: brightness(50%);
+  object-fit: cover;
+}
+
+.title {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  transform: translateY(-50%);
+  text-shadow: var(--text-shadow-ligth);
+  color: var(--color-text-light);
+}
+
+.title a {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: var(--color-text-green);
+  text-decoration: none;
+  margin-bottom: 5px;
+}
+
+.title p {
+  font-size: 24px;
+  margin: 0;
+  color: var(--color-text-light);
+}
+
+.item {
+  margin: 0;
+  position: relative;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.item a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.item:hover a,
+.item.active a {
+  color: var(--color-text-green);
+}
+
+.item::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 3px;
+  background-color: var(--color-text-green);
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width 0.3s;
+}
+
+.item.active::after,
+.item:hover::after {
+  width: 100%;
+}
+
+/* section Info */
+
+.sectionInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 40px 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: var(--background-color-black);
+  color: var(--color-text-light);
+}
+
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.content {
+  max-width: 600px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  display: flex;
+  gap: 40px;
+}
+
+.content h3 {
+  font-size: 30px;
+}
+
+.content span {
+  color: var(--color-text-green);
+}
+
+.content p {
+  font-weight: 200;
+  margin-right: 60px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: var(--button-color-green);
+  color: var(--color-text-black);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: var(--button-color-hover-green);
+}
+
+/* section clases */
+
+.sectionClase {
+  padding: 20px;
+}
+
+.sectionClase h3 {
+  font-weight: 700;
+  font-size: 38px;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 60px;
+}
+
+.titleClase {
+  color: var(--color-text-light);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* section team */
+
+.sectionTeam {
+  position: relative;
+  text-align: left;
+  color: var(--color-text-light);
+}
+
+.sectionTeam h3 {
+  color: var(--color-text-light);
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 38px;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 60px;
+}
+
+.imageTeam {
+  width: 100%;
+  height: 100%;
+  filter: brightness(50%);
+  object-fit: cover;
+}
+
+.descripTeam {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateY(-60%);
+}
+.descripTeam p {
+  background-color: rgba(201, 200, 200, 0.861);
+  padding: 40px;
+  box-shadow: 0 2px 15px #347d28;
+  margin: 40px;
+  color: var(--color-text-black);
+  width: 70%;
+  font-size: large;
+}
+
+/* Responsive Design section Info*/
+@media (min-width: 1200px) {
+  .sectionInfo {
+    flex-direction: row;
+    text-align: left;
+  }
+
+  .content {
+    margin-left: 20px;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 1200px) {
+  .cardContainer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .descripTeam {
+    transform: translateY(-40%);
+    width: 100%;
+  }
+  .descripTeam p {
+    padding: 10px;
+    margin: 10px;
+    width: 80%;
+    font-size: medium;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,23 +1,22 @@
 //HOOKS
-import { Routes, Route, useLocation  } from "react-router-dom";
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 //COMPONENTS
-import DashboardClient from "./DashboardClient/DashboardClient";
-import Activities from "./Activities/Activities";
-import Membresia from "./Membresias/Membresia";
-import FormLogin from "./FormLogin/FormLogin";
-import ContactUs from "./ContactUs/ContactUs";
-import NavBar from "./NavBar/NavBar";
-import Footer from "./Footer/Footer";
-import Users from "./Users/Users ";
-import Login from "./Login/Login";
-import Modal from "./Modal/Modal";
-import Home from "./Home/Home";
+import DashboardClient from './DashboardClient/DashboardClient';
+import Activities from './pages/Activities/Activities';
+import Membresia from './pages/Membresias/Membresia';
+import FormLogin from './FormLogin/FormLogin';
+import ContactUs from './pages/ContactUs/ContactUs';
+import NavBar from './NavBar/NavBar';
+import Footer from './Footer/Footer';
+import Users from './Users/Users ';
+import Login from './Login/Login';
+import Modal from './Modal/Modal';
+import Home from './pages/Home/Home';
 //STYLE
-import style from "./App.module.css";
+import style from './App.module.css';
 
 function App() {
-
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -32,7 +31,9 @@ function App() {
 
   return (
     <div className={style.App}>
-      {location.pathname !== '/dashboardclient' && <NavBar openModal={openModal} />}
+      {location.pathname !== '/dashboardclient' && (
+        <NavBar openModal={openModal} />
+      )}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/membresia" element={<Membresia />} />
@@ -40,10 +41,10 @@ function App() {
         <Route path="/actividades" element={<Activities />} />
         <Route path="/usuario" element={<Users />} />
         <Route path="/formulario" element={<FormLogin />} />
-        <Route path="/dashboardclient" element={<DashboardClient/>}/>
+        <Route path="/dashboardclient" element={<DashboardClient />} />
       </Routes>
       <Modal show={showModal} onClose={closeModal}>
-        <Login onClick={closeModal}/>
+        <Login onClick={closeModal} />
       </Modal>
       {location.pathname !== '/dashboardclient' && <Footer />}
     </div>

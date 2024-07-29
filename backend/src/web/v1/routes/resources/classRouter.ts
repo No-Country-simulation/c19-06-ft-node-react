@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import { createClassHandler, getAllClassesHandler, getClassByIdHandler, updateClassHandler, deleteClassHandler } from '../../handlers/classHandler';
-import { authenticateToken } from '../../middleware/authToken';
+import { authenticateAndAuthorize } from '../../middleware/authToken';
 
 
 const classRouter = Router();
 
 // Rutas que requieren autenticación
-classRouter.post('/', authenticateToken, createClassHandler);
-classRouter.put('/:id', authenticateToken, updateClassHandler);
-classRouter.delete('/:id', authenticateToken, deleteClassHandler);
+classRouter.post('/', authenticateAndAuthorize(['admin']), createClassHandler);
+classRouter.put('/:id', authenticateAndAuthorize(['admin']), updateClassHandler);
+classRouter.delete('/:id', authenticateAndAuthorize(['admin']), deleteClassHandler);
 
 // Rutas que no requieren autenticación
 classRouter.get('/', getAllClassesHandler);
