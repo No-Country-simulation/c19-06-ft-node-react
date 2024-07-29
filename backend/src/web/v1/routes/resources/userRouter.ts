@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { getAllUsersHandler, getUserByIdHandler, createUserHandler, updateUserHandler, deleteUserHandler } from '../../handlers/userHandler';
-import { authenticateToken } from '../../middleware/authToken';
+import { authenticateAndAuthorize } from '../../middleware/authToken';
 
 const userRouter = Router();
 
@@ -9,8 +9,8 @@ userRouter.get('/', getAllUsersHandler);
 userRouter.get('/:id', getUserByIdHandler);
 
 // Rutas que requieren autenticación
-userRouter.post('/', authenticateToken, createUserHandler);
-userRouter.put('/:id', authenticateToken, updateUserHandler);
-userRouter.delete('/:id', authenticateToken, deleteUserHandler);
+userRouter.post('/', authenticateAndAuthorize(['admin']), createUserHandler);
+userRouter.put('/:id', authenticateAndAuthorize(['admin']), updateUserHandler);
+userRouter.delete('/:id', authenticateAndAuthorize(['admin']), deleteUserHandler);
 
 export default userRouter;

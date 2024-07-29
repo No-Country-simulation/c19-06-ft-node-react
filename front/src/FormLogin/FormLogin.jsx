@@ -1,5 +1,5 @@
 //STYLE
-import style from "./FormLogin.module.css";
+import style from './FormLogin.module.css';
 
 const FormLogin = () => {
   return (

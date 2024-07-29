@@ -5,29 +5,29 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: #05050591;
+  background-color: var(--background-color-black-transl);
   justify-content: space-between;
   padding: 15px 30px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--background-color-shadow);
   z-index: 1000;
 }
 
 .title {
   font-size: 2rem;
   font-weight: 700;
-  color: #fff;
+  color:  #fff;
   text-decoration: none;
   letter-spacing: 0.5px;
-  transition: color 0.3s;
+  transition: color  0.3s;
 }
 
 .title:hover {
-  color: #59c535;
+  color: var(--button-color-hover-green);
 }
 
 .container {
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 .items {
@@ -43,7 +43,7 @@
 }
 
 .item a {
-  color: #fff;
+  color:  #fff;
   text-decoration: none;
   padding: 10px 20px;
   display: block;
@@ -52,15 +52,15 @@
 
 .item:hover a,
 .item.active a {
-  color: #59c535;
+  color: var(--color-text-green);
 }
 
 .item::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 3px;
-  background-color: #59c535;
+  background-color: var(--button-color-green);
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -76,7 +76,7 @@
 .login {
   display: flex;
   align-items: center;
-  color: #59c535;
+  color: var(--color-text-green);
   font-weight: bold;
   text-transform: uppercase;
   cursor: pointer;
@@ -85,7 +85,7 @@
 
 .login:hover {
   transform: scale(1.05);
-  color: #4a9e2b;
+  color: var(--color-text-hover-green);
 }
 
 .user {
@@ -99,45 +99,3 @@
   transform: scale(1.1);
 }
 
-/* Media Query para iPhone 14 Pro Max */
-@media (max-width: 430px) {
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    padding: 10px 20px;
-  }
-
-  .title {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-
-  .container {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .items {
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    padding: 0;
-  }
-
-  .item {
-    margin: 5px 0;
-  }
-
-  .item a {
-    padding: 10px 15px;
-  }
-
-  .login {
-    margin-top: 10px;
-  }
-
-  .user {
-    width: 20px;
-    height: 20px;
-  }
-}
