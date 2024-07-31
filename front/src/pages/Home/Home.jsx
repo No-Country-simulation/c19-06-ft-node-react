@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom';
 import ejercicio from '../../../public/Home/imagen5.png';
 import personInfo from '../../../public/Home/personInfo.svg';
 import team from '../../../public/Home/team.svg';
+import aliado1 from '../../../public/Home/aliado1.svg';
+import aliado2 from '../../../public/Home/aliado2.svg';
+import aliado3 from '../../../public/Home/aliado3.svg';
+import aliado4 from '../../../public/Home/aliado4.svg';
+import aliado5 from '../../../public/Home/aliado5.svg';
 
 //STLYE
 import style from './Home.module.css';
@@ -29,9 +34,12 @@ const Home = () => {
           </picture>
         </div>
         <div className={style.content}>
-          <h3>
-            ¡Transforma tu vida con <span>GYMFit!</span>
-          </h3>
+          <div className={style.contentTitle}>
+            <h3>
+              ¡Transforma tu vida con <span>GYMFit!</span>
+            </h3>
+          </div>
+
           <p>
             En nuestro gimnasio, encontrarás un espacio diseñado para ayudarte a
             alcanzar tus metas de salud y fitness. Con instalaciones modernas,
@@ -43,7 +51,9 @@ const Home = () => {
             apoyarte para lograr una vida más saludable y activa. ¡Ven y forma
             parte de la familia GYMFit hoy mismo!
           </p>
-          <button>INICIAR AHORA</button>
+          <div className={style.contentButton}>
+            <button>INICIAR AHORA</button>
+          </div>
         </div>
       </section>
 
@@ -64,7 +74,10 @@ const Home = () => {
 
       <section className={style.sectionTeam}>
         <h3>Nuestro Team</h3>
-        <img className={style.imageTeam} src={team} alt="team" />
+        <picture className={style.pictureTeam}>
+          <img className={style.imageTeam} src={team} alt="team" />
+        </picture>
+
         <div className={style.descripTeam}>
           <p>
             En Gymfit, contamos con un equipo de coaches altamente cualificados
@@ -76,6 +89,17 @@ const Home = () => {
             descubre cómo nuestro equipo puede optimizar tu entrenamiento y
             maximizar tus resultados.
           </p>
+        </div>
+      </section>
+
+      <section className={style.sectionAliados}>
+        <h3>Nuestros Aliados</h3>
+        <div className={style.contAliados}>
+          <img src={aliado1} alt="empresas aliadas" />
+          <img src={aliado2} alt="empresas aliadas" />
+          <img src={aliado3} alt="empresas aliadas" />
+          <img src={aliado4} alt="empresas aliadas" />
+          <img src={aliado5} alt="empresas aliadas" />
         </div>
       </section>
     </div>

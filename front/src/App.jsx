@@ -15,6 +15,7 @@ import Modal from './Modal/Modal';
 import Home from './pages/Home/Home';
 //STYLE
 import style from './App.module.css';
+import WhaspBtn from './components/btnWhaps/WhaspBtn';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -46,6 +47,7 @@ function App() {
       <Modal show={showModal} onClose={closeModal}>
         <Login onClick={closeModal} />
       </Modal>
+      <WhaspBtn />
       {location.pathname !== '/dashboardclient' && <Footer />}
     </div>
   );

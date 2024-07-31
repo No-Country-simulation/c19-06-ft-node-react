@@ -10,7 +10,7 @@ const ROUTES = {
   HOME: '/',
   MEMBRESIA: '/membresia',
   ACTIVIDADES: '/actividades',
-  CONTACTANOS: '/contactanos',
+  CONTACTANOS: '/contacto',
 };
 
 const NAV_ITEMS = [
