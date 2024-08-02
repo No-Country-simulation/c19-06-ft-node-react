@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import style from './CardActivity.module.css';
+<<<<<<< Updated upstream
 import { urlProduction } from '../../utils/data';
 import {displayFailedMessage , displaySuccessMessage} from '../../utils/toastyfy';
 import { ToastContainer } from 'react-toastify';
@@ -42,6 +43,9 @@ const CardActivity = ({ image, title, info, day, capacity, start_time, id }) => 
       displayFailedMessage('Hubo un error al crear la reserva.')
     }
   };
+=======
+import { Link } from 'react-router-dom';
+>>>>>>> Stashed changes
 
   return (
     <div className={style.card}>
@@ -56,12 +60,18 @@ const CardActivity = ({ image, title, info, day, capacity, start_time, id }) => 
         <p>Capacidad: {capacity}</p>
       </div>
       <div className={style.buy}>
+<<<<<<< Updated upstream
         <input 
           type="submit" 
           value="Reservar" 
           className={style.button} 
           onClick={handleReserve}
         />
+=======
+        <Link to="/formulario">
+          <input type="submit" value="Reservar" className={style.button} />
+        </Link>
+>>>>>>> Stashed changes
       </div>
       <ToastContainer />
     </div>

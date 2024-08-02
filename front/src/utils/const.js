@@ -109,3 +109,56 @@ export const actividades = [
     disponibilidad: 'Disponibilidad: N',
   },
 ];
+
+export const users = [
+  {
+    id: '0001',
+    email: 'user1@example.com',
+    password: 'password1',
+    name: 'User',
+    last_name: 'One',
+    phone_number: '123456789',
+    address: 'Address 1',
+    birth_date: '1990-01-01',
+    role: 'admin',
+    classes: [
+      {
+        name: 'Yoga',
+        date: '2024-08-01',
+        startTime: '08:00',
+        endTime: '09:00',
+      },
+      {
+        name: 'Pilates',
+        date: '2024-08-02',
+        startTime: '10:00',
+        endTime: '11:00',
+      },
+    ],
+  },
+  {
+    id: '0002',
+    email: 'user2@example.com',
+    password: 'password2',
+    name: 'User',
+    last_name: 'Two',
+    phone_number: '987654321',
+    address: 'Address 2',
+    birth_date: '1985-05-05',
+    role: 'member',
+    classes: [
+      {
+        name: 'Crossfit',
+        date: '2024-08-03',
+        startTime: '12:00',
+        endTime: '13:00',
+      },
+      {
+        name: 'Boxing',
+        date: '2024-08-04',
+        startTime: '14:00',
+        endTime: '15:00',
+      },
+    ],
+  },
+];

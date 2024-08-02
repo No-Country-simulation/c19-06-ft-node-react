@@ -52,7 +52,9 @@ const Home = () => {
             parte de la familia GYMFit hoy mismo!
           </p>
           <div className={style.contentButton}>
-            <button>INICIAR AHORA</button>
+            <Link to="/formulario">
+              <button>INICIAR AHORA</button>
+            </Link>
           </div>
         </div>
       </section>

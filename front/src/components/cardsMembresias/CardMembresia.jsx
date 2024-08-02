@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import style from './CardMembresia.module.css';
 
 const CardMembresia = ({ title, price, listado }) => {
@@ -16,7 +17,9 @@ const CardMembresia = ({ title, price, listado }) => {
         ))}
       </ul>
       <div className={style.buy}>
-        <input type="submit" value="Suscribirse" className={style.button} />
+        <Link to="/formulario">
+          <input type="submit" value="Suscribirse" className={style.button} />
+        </Link>
       </div>
     </div>
   );
