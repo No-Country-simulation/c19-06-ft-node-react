@@ -1,7 +1,45 @@
 //STYLE
 import style from './FormLogin.module.css';
+import { useState } from 'react';
+import axios from 'axios';
+import { urlProduction } from '../utils/data';
+import { displayFailedMessage, displaySuccessMessage } from '../utils/toastyfy';
+import { ToastContainer } from 'react-toastify';
 
 const FormLogin = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    phone_number: '',
+    address: '',
+    birth_date: '',
+    role: 'user', // Puedes cambiar esto según sea necesario
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post(`${urlProduction}/register`, formData);
+      console.log('User registered:', response.data);
+      displaySuccessMessage("Te registraste con exito.");
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 2000); 
+      // Aquí puedes manejar el éxito del registro (p.ej., redirigir al usuario, mostrar un mensaje, etc.)
+    } catch (error) {
+      console.error('Error registering user:', error);
+      displayFailedMessage("Error en realizar el registro de usuario.");
+      // Aquí puedes manejar el error (p.ej., mostrar un mensaje de error)
+    }
+  };
+
   return (
     <div className={style.container}>
       <div className={style.containerform}>
@@ -12,41 +50,67 @@ const FormLogin = () => {
           <br />
           nuestro servicios
         </h3>
-        <form className={style.form}>
-          <label htmlFor="nombre">Nombre:</label>
+        <form className={style.form} onSubmit={handleSubmit}>
+          <label htmlFor="name">Nombre:</label>
           <input
             id="name"
             type="text"
-            name="nombre"
+            name="name"
             placeholder="Ingrese su nombre"
+            value={formData.name}
+            onChange={handleChange}
           />
-          <label htmlFor="apellido"> Apellido: </label>
+          <label htmlFor="last_name"> Apellido: </label>
           <input
-            id="lastname"
+            id="last_name"
             type="text"
-            name="apellido"
+            name="last_name"
             placeholder="Ingrese su apellido"
+            value={formData.last_name}
+            onChange={handleChange}
           />
           <label htmlFor="email"> Email: </label>
           <input
             id="email"
             type="text"
-            name="correo"
-            placeholder="ejample@gmail.com"
+            name="email"
+            placeholder="ejemplo@gmail.com"
+            value={formData.email}
+            onChange={handleChange}
           />
-          <label htmlFor="constraseña"> Contraseña: </label>
-          <input id="password" type="password" name="contraseña" />
-          <label htmlFor="teléfono"> Teléfono: </label>
-          <input id="phone" type="text" name="teléfono" />
-          <label htmlFor="dirección"> Dirección: </label>
+          <label htmlFor="password"> Contraseña: </label>
           <input
-            id="street"
-            type="text"
-            name="dirección"
-            placeholder="Ingrese su dirección"
+            id="password"
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
           />
-          <label htmlFor="fecha"> Fecha de nacimiento: </label>
-          <input id="date" type="text" name="fecha" />
+          <label htmlFor="phone_number"> Teléfono: </label>
+          <input
+            id="phone_number"
+            type="text"
+            name="phone_number"
+            value={formData.phone_number}
+            onChange={handleChange}
+          />
+          <label htmlFor="address"> Dirección: </label>
+          <input
+            id="address"
+            type="text"
+            name="address"
+            placeholder="Ingrese su dirección"
+            value={formData.address}
+            onChange={handleChange}
+          />
+          <label htmlFor="birth_date"> Fecha de nacimiento: </label>
+          <input
+            id="birth_date"
+            type="date"
+            name="birth_date"
+            value={formData.birth_date}
+            onChange={handleChange}
+          />
           <div className={style.buy}>
             <input
               type="submit"
@@ -56,6 +120,7 @@ const FormLogin = () => {
           </div>
         </form>
       </div>
+      <ToastContainer />
     </div>
   );
 };
