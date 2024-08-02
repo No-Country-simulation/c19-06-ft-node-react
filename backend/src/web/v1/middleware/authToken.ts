@@ -12,6 +12,7 @@ export const authenticateAndAuthorize = (allowedRoles: string[]) => {
   return async (req: CustomRequest, res: Response, next: NextFunction) => {
     console.log('allowedRoles:',allowedRoles)
     const authHeader = req.headers.authorization;
+    console.log('authHeader:',req.headers)
 
     if (!authHeader) {
       return res.status(401).json({ error: 'Access denied' });

@@ -13,6 +13,7 @@ import Users from './Users/Users ';
 import Login from './Login/Login';
 import Modal from './Modal/Modal';
 import Home from './pages/Home/Home';
+import MercagoPagoPage from './pages/MercadoPago/mp';
 //STYLE
 import style from './App.module.css';
 import WhaspBtn from './components/btnWhaps/WhaspBtn';
@@ -43,6 +44,7 @@ function App() {
         <Route path="/usuario" element={<Users />} />
         <Route path="/formulario" element={<FormLogin />} />
         <Route path="/dashboardclient" element={<DashboardClient />} />
+        <Route path="/mercagoPago" element={<MercagoPagoPage />} />
       </Routes>
       <Modal show={showModal} onClose={closeModal}>
         <Login onClick={closeModal} />

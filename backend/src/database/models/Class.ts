@@ -9,6 +9,7 @@ interface ClassAttributes {
   end_time: string;
   day: string;
   capacity?: number;
+  image?: string;
 }
 
 interface ClassCreationAttributes extends Optional<ClassAttributes, 'id'> {}
@@ -21,6 +22,7 @@ class Class extends Model<ClassAttributes, ClassCreationAttributes> implements C
   public end_time!: string;
   public day!: string;
   public capacity?: number;
+  public image?: string;
 }
 
 Class.init(
@@ -53,6 +55,10 @@ Class.init(
     capacity: {
       type: DataTypes.INTEGER,
       allowNull: true,
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: true
     }
   },
   {
