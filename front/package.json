@@ -10,11 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@heroicons/react": "^2.1.5",
     "@mercadopago/sdk-js": "^0.0.3",
     "axios": "^1.7.2",
     "react": "^18.3.1",
     "react-credit-cards": "^0.8.3",
+    "react-datepicker": "^7.3.0",
     "react-dom": "^18.3.1",
+    "react-modal": "^3.16.1",
     "react-router-dom": "^6.24.1",
     "react-toastify": "^10.0.5",
     "redux": "^5.0.1",

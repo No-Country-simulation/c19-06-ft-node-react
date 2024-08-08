@@ -1,7 +1,7 @@
 
 import MercadoPagoForm from '../../mercadoPago/mercadoPagoForm';
 
-const MercagoPagoPage = () => {
+const MercadoPagoPage = () => {
   return (
     <div className="container">
         <MercadoPagoForm />
@@ -9,4 +9,4 @@ const MercagoPagoPage = () => {
   );
 };
 
-export default MercagoPagoPage;
+export default MercadoPagoPage;

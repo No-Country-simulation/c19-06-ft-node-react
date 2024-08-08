@@ -1,6 +1,11 @@
 import style from './CardMembresia.module.css';
 
+
+
 const CardMembresia = ({ title, price, listado }) => {
+  const handleSubscription = () => {
+    window.location.href = '/mercadoPago';
+  };
   return (
     <div className={style.membresia}>
       <div className={style.header}>
@@ -16,7 +21,7 @@ const CardMembresia = ({ title, price, listado }) => {
         ))}
       </ul>
       <div className={style.buy}>
-        <input type="submit" value="Suscribirse" className={style.button} />
+        <input type="submit" value="Suscribirse" className={style.button} onClick={handleSubscription}/>
       </div>
     </div>
   );

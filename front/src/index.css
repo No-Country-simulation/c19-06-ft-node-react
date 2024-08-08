@@ -1,4 +1,5 @@
 :root {
+  background-color: black;
   --color-text-green: #59c535;
   --color-text-light: #fff;
   --color-text-black: black;
@@ -16,6 +17,7 @@
   --background-color-black-transl: #050505a3;
   --background-color-card: rgba(0, 0, 0, 0.5);
   --background-color-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --background-color-light: #f2f2f2;
 
   --box-shadow-black: 0 4px 6px rgba(81, 81, 81, 0.1);
 }
@@ -31,12 +33,7 @@
 html {
   scroll-behavior: smooth;
 }
-.container {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center;     /* Centra verticalmente */
-  height: 100vh;           /* Ocupa toda la altura de la ventana */
-}
+
 
 
 /*

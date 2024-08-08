@@ -12,6 +12,7 @@ interface UserAttributes {
   birth_date: Date;
   role: string;
   refreshToken?: string;
+  suscripted?: boolean;
 }
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
@@ -27,6 +28,7 @@ class User extends Model<UserAttributes, UserCreationAttributes> implements User
   public birth_date!: Date;
   public role!: string;
   public refreshToken?: string;
+  public suscripted?: boolean;
 }
 
 User.init(
@@ -73,6 +75,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true, 
     },
+    suscripted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false, 
+    }
   },
   {
     sequelize,
