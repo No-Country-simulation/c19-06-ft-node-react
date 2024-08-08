@@ -4,9 +4,17 @@ import { swaggerDocs as V1SwaggerDocs } from "./services/swagger/swagger";
 import { sequelize } from "./database/database";
 import v1 from "./web/v1/router";
 import cookieParser from "cookie-parser";
+import './database/models/associations'
+import cors from "cors";
 
 const app = express();
 const port = config.api.port;
+
+app.use(cors({
+  origin: 'http://localhost:5173', // Reemplaza con la URL de tu frontend
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true // Si necesitas enviar cookies o autenticación
+}));
 
 app.use(express.json()); // middleware for parsing application/json
 app.use(cookieParser());

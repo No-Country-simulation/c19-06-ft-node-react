@@ -12,11 +12,12 @@ interface UserAttributes {
   birth_date: Date;
   role: string;
   refreshToken?: string;
+  suscripted?: boolean;
 }
 
 interface UserCreationAttributes extends Optional<UserAttributes, 'id'> {}
 
-export class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
+class User extends Model<UserAttributes, UserCreationAttributes> implements UserAttributes {
   public id!: string;
   public email!: string;
   public password!: string;
@@ -27,6 +28,7 @@ export class User extends Model<UserAttributes, UserCreationAttributes> implemen
   public birth_date!: Date;
   public role!: string;
   public refreshToken?: string;
+  public suscripted?: boolean;
 }
 
 User.init(
@@ -73,6 +75,11 @@ User.init(
       type: DataTypes.STRING,
       allowNull: true, 
     },
+    suscripted: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false, 
+    }
   },
   {
     sequelize,
@@ -81,3 +88,6 @@ User.init(
     tableName: 'users',
   }
 );
+
+export { User }
+
